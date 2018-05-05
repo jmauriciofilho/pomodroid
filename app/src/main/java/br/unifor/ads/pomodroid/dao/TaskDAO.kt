@@ -12,7 +12,7 @@ class TaskDAO(val context : Context){
     private val TASK_NAME_FIELD = "name"
     private val TASK_DESCRIPTION_FIELD = "description"
     private val TASK_FINISHED_FIELD = "finished"
-    private val TASK_ESTIMATEPOMODORO_FIELD = "estimatePomodoro"
+    private val TASK_ESTIMATEPOMODORO_FIELD = "estimatedPomodoro"
     private val TASK_TOTALPOMODORO_FIELD = "totalPomodoro"
     private val TASK_TASKLIST_FIELD = "taskList"
 
@@ -68,7 +68,7 @@ class TaskDAO(val context : Context){
             val name = cursor.getString(cursor.getColumnIndex("name"))
             val description = cursor.getString(cursor.getColumnIndex("description"))
             val finished = cursor.getInt(cursor.getColumnIndex("finished")) == 1
-            val estimatePomodoro = cursor.getInt(cursor.getColumnIndex("estimatePomodoro"))
+            val estimatePomodoro = cursor.getInt(cursor.getColumnIndex("estimatedPomodoro"))
             val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
             val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
@@ -98,7 +98,7 @@ class TaskDAO(val context : Context){
                 val name = cursor.getString(cursor.getColumnIndex("name"))
                 val description = cursor.getString(cursor.getColumnIndex("description"))
                 val finished = cursor.getInt(cursor.getColumnIndex("finished")) == 1
-                val estimatePomodoro = cursor.getInt(cursor.getColumnIndex("estimatePomodoro"))
+                val estimatePomodoro = cursor.getInt(cursor.getColumnIndex("estimatedPomodoro"))
                 val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
                 val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))

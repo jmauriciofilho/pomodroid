@@ -20,7 +20,9 @@
         <activity android:name=".activity.UserForm" />
         <activity android:name=".activity.RegisterFormActivity" />
         <activity android:name=".activity.TesteActivity" />
-        <activity android:name=".activity.TestTaskListActivity"></activity>
+        <activity android:name=".activity.TestTaskListActivity" />
+        <activity android:name=".activity.TestTaskActivity" />
+        <activity android:name=".activity.TestTagActivity"></activity>
     </application>
 
 </manifest>

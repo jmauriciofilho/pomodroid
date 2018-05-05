@@ -17,7 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         handler.postDelayed({
 
-            val it = Intent(SplashScreenActivity@this ,TestTaskListActivity::class.java )
+            val it = Intent(SplashScreenActivity@this ,TestTaskActivity::class.java )
             startActivity(it)
             finish()
 

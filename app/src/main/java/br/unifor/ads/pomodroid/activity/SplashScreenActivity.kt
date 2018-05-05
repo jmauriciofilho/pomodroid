@@ -17,11 +17,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
         handler.postDelayed({
 
-            val it = Intent(SplashScreenActivity@this ,LoginActivity::class.java )
+            val it = Intent(SplashScreenActivity@this ,TestTaskListActivity::class.java )
             startActivity(it)
             finish()
 
-        }, 3000);
+        }, 3000)
 
     }
 

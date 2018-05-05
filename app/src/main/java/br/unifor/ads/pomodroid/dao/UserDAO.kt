@@ -55,7 +55,7 @@ class UserDAO(val context:Context) {
         if(cursor.count > 0){
 
             cursor.moveToFirst()
-            val id = cursor.getInt(cursor.getColumnIndex("_id"))
+            val id = cursor.getLong(cursor.getColumnIndex("_id"))
             val name = cursor.getString(cursor.getColumnIndex("name"))
             val email = cursor.getString(cursor.getColumnIndex("email"))
             val password = cursor.getString(cursor.getColumnIndex("password"))
@@ -76,7 +76,7 @@ class UserDAO(val context:Context) {
         if(cursor.count > 0){
 
             cursor.moveToFirst()
-            val id = cursor.getInt(cursor.getColumnIndex("_id"))
+            val id = cursor.getLong(cursor.getColumnIndex("_id"))
             val name = cursor.getString(cursor.getColumnIndex("name"))
             val email = cursor.getString(cursor.getColumnIndex("email"))
             val password = cursor.getString(cursor.getColumnIndex("password"))
@@ -100,7 +100,7 @@ class UserDAO(val context:Context) {
 
             do {
 
-                val id = cursor.getInt(cursor.getColumnIndex("_id"))
+                val id = cursor.getLong(cursor.getColumnIndex("_id"))
                 val name = cursor.getString(cursor.getColumnIndex("name"))
                 val email = cursor.getString(cursor.getColumnIndex("email"))
                 val password = cursor.getString(cursor.getColumnIndex("password"))

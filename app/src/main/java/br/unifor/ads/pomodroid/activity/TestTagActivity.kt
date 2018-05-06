@@ -13,7 +13,7 @@ class TestTagActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_tag)
 
-        deleteTag()
+        createTag()
 
     }
 
@@ -21,8 +21,8 @@ class TestTagActivity : AppCompatActivity() {
     private fun createTag(){
         val tagDAO = TagDAO(TestTagActivity@this)
 
-        val tag = Tag(null, "Alta prioridade", 1)
-        val tag2 = Tag(null, "Média prioridade", 1)
+        val tag = Tag(null, "Média prioridade", 1)
+        val tag2 = Tag(null, "Baixa prioridade", 1)
 
         tagDAO.insert(tag)
         tagDAO.insert(tag2)

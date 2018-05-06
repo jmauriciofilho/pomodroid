@@ -22,7 +22,8 @@
         <activity android:name=".activity.TesteActivity" />
         <activity android:name=".activity.TestTaskListActivity" />
         <activity android:name=".activity.TestTaskActivity" />
-        <activity android:name=".activity.TestTagActivity"></activity>
+        <activity android:name=".activity.TestTagActivity" />
+        <activity android:name=".activity.TestTasksTagsActivity"></activity>
     </application>
 
 </manifest>

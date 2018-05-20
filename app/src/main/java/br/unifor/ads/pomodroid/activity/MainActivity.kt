@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        val userForm = Intent(this, UserFormActivity::class.java)
+        val userForm = Intent(this, RegisterFormActivity::class.java)
         startActivity(userForm)
 
     }

@@ -7,7 +7,7 @@
     tools:context=".activity.RegisterFormActivity">
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edit_text_name"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -27,7 +27,7 @@
         app:layout_constraintVertical_bias="0.218" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edit_text_email"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -43,11 +43,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_name"
         app:layout_constraintVertical_bias="0.074" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/edit_text_senha"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -63,11 +63,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_email"
         app:layout_constraintVertical_bias="0.112" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/salvar_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -80,6 +80,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_senha" />
 
 </android.support.constraint.ConstraintLayout>

@@ -26,7 +26,6 @@ class TaskDAO(val context : Context){
         values.put(TASK_FINISHED_FIELD, task.finished)
         values.put(TASK_ESTIMATEPOMODORO_FIELD, task.estimatedPomodoro)
         values.put(TASK_TOTALPOMODORO_FIELD, task.totalPomodoro)
-        values.put(TASK_TASKLIST_FIELD, task.taskList.id)
 
         val id = db.insert(TABLE_NAME, null, values )
 
@@ -42,7 +41,6 @@ class TaskDAO(val context : Context){
         values.put(TASK_FINISHED_FIELD, task.finished)
         values.put(TASK_ESTIMATEPOMODORO_FIELD, task.estimatedPomodoro)
         values.put(TASK_TOTALPOMODORO_FIELD, task.totalPomodoro)
-        values.put(TASK_TASKLIST_FIELD, task.taskList.id)
 
         val rowsAffected = db.update(TABLE_NAME, values, "_id = ?", arrayOf(task.id.toString()))
 

@@ -15,7 +15,7 @@ class TestTaskListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_task_list)
 
 
-        deleteTaskList()
+        updateTaskList()
 
     }
 
@@ -38,17 +38,17 @@ class TestTaskListActivity : AppCompatActivity() {
         val userDAO = UserDAO(TestTaskListActivity@this)
         val taskListDAO = TaskListDAO(TestTaskListActivity@this)
 
-        val taskListOld = taskListDAO.find(2)
+        val taskListOld = taskListDAO.find(1)
 
         val user = userDAO.find(1)
 
         Log.d("result", taskListOld.toString())
 
-        val taskList = TaskList(2, "Tarefas UNIFOR", "tarefas que tenho pendentes no trabalho", user!!)
+        val taskList = TaskList(1, "Tarefas UNIFOR", "tarefas que tenho pendentes no trabalho", user!!)
 
         taskListDAO.update(taskList)
 
-        val taskListAlterada = taskListDAO.find(2)
+        val taskListAlterada = taskListDAO.find(1)
 
         Log.d("result", taskListAlterada.toString())
     }

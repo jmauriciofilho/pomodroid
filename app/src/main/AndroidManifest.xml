@@ -17,13 +17,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.UserForm" />
+        <activity
+            android:name=".activity.UserFormActivity"
+            android:label="@string/title_activity_user_form"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.RegisterFormActivity" />
         <activity android:name=".activity.TesteActivity" />
         <activity android:name=".activity.TestTaskListActivity" />
         <activity android:name=".activity.TestTaskActivity" />
         <activity android:name=".activity.TestTagActivity" />
-        <activity android:name=".activity.TestTasksTagsActivity"></activity>
+        <activity android:name=".activity.TestTasksTagsActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

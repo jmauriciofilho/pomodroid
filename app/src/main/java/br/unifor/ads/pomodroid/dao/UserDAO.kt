@@ -21,6 +21,7 @@ class UserDAO(val context:Context) {
         values.put(USER_NAME_FIELD, user.name)
         values.put(USER_EMAIL_FIELD, user.email)
         values.put(USER_PASSWORD_FIELD, user.password)
+        values.put("_id", user.id)
 
         val id = db.insert(TABLE_NAME, null, values )
 
@@ -34,6 +35,7 @@ class UserDAO(val context:Context) {
         values.put(USER_NAME_FIELD, user.name)
         values.put(USER_EMAIL_FIELD, user.email)
         values.put(USER_PASSWORD_FIELD, user.password)
+        values.put("_id", user.id)
 
         val rowsAffected = db.update(TABLE_NAME, values, "_id = ?", arrayOf(user.id.toString()))
 

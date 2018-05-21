@@ -1,66 +1,47 @@
 package br.unifor.ads.pomodroid.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
+import android.support.design.widget.Snackbar
+import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import br.unifor.ads.pomodroid.R
-import br.unifor.ads.pomodroid.adapter.UserAdapter
-import br.unifor.ads.pomodroid.dao.UserDAO
-import br.unifor.ads.pomodroid.entity.User
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-    private lateinit var mUserList: RecyclerView
-    private lateinit var mUserAdd: FloatingActionButton
-
-    private lateinit var mRecyclerViewAdapter: RecyclerView.Adapter<*>
-    private lateinit var mRecyclerViewLayoutManager: LinearLayoutManager
-
-    private lateinit var userDAO: UserDAO
-    private lateinit var userLists: MutableList<User>
-
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
-        userDAO = UserDAO(this)
+        val toggle = ActionBarDrawerToggle(
+                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
 
-        userLists = userDAO.findAll().toMutableList()
+        nav_view.setNavigationItemSelectedListener(this)
+    }
 
-        mRecyclerViewAdapter = UserAdapter(this, userLists)
-        mRecyclerViewLayoutManager = LinearLayoutManager(this)
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
 
-        mUserList = findViewById<RecyclerView>(R.id.main_recycler_users_list).apply {
-            setHasFixedSize(false)
-            layoutManager = mRecyclerViewLayoutManager
-            adapter = mRecyclerViewAdapter
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        // Handle navigation view item clicks here.
+        when (item.itemId) {
+
         }
 
-        mUserAdd = findViewById<FloatingActionButton>(R.id.main_recycler_users_add)
-        mUserAdd.setOnClickListener(this)
-
-
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
     }
-
-    override fun onStart() {
-        super.onStart()
-        userLists.clear()
-        userLists.addAll(0, userDAO.findAll())
-        mUserList.adapter.notifyDataSetChanged()
-    }
-
-    override fun onClick(v: View?) {
-
-        val userForm = Intent(this, RegisterFormActivity::class.java)
-        startActivity(userForm)
-
-    }
-
-
 }

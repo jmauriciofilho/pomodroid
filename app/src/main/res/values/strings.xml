@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">PomoDroid</string>
     <string name="title_activity_user_form">UserForm</string>
+    <string name="title_activity_list_tasks_navigation">ListTasksNavigationActivity</string>
+    <string name="navigation_drawer_open">Menu aberto</string>
+    <string name="navigation_drawer_close">Menu fechado</string>
+    <string name="nav_header_title">Pomodroid</string>
+    <string name="nav_header_subtitle">Organize suas tarefas!</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Pomodroid</string>
 </resources>

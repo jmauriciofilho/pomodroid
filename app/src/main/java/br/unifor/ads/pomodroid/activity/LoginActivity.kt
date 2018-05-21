@@ -58,17 +58,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     if (user.email == mEmailLogin.text.toString()){
                         if (user.password == mSenhaLogin.text.toString()){
                             val it = Intent(this, MainActivity::class.java)
+                            it.putExtra("id_user", user.id)
                             startActivity(it)
 
                             finish()
+                        }else{
+                            val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
+                            toast.show()
                         }
+                    }else {
+                        val toast = Toast.makeText(LoginActivity@ this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
+                        toast.show()
                     }
 
-
                 }
-
-                val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
-                toast.show()
 
             }
 

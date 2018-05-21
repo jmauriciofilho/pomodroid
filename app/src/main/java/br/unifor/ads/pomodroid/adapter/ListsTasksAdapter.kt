@@ -7,19 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.unifor.ads.pomodroid.R
-import br.unifor.ads.pomodroid.entity.User
+import br.unifor.ads.pomodroid.entity.TaskList
 
-class UserAdapter(val context: Context, val users: List<User>) : RecyclerView.Adapter<UserAdapter.TaskViewHolder>() {
+class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : RecyclerView.Adapter<ListsTasksAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val name: TextView
-        val email: TextView
+        val description: TextView
 
         init {
 
-            name = itemView.findViewById(R.id.item_user_name)
-            email = itemView.findViewById(R.id.item_user_email)
+            name = itemView.findViewById(R.id.item_list_task_name)
+            description = itemView.findViewById(R.id.item_list_task_description)
 
         }
 
@@ -27,19 +27,19 @@ class UserAdapter(val context: Context, val users: List<User>) : RecyclerView.Ad
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
 
-        val itemView = LayoutInflater.from(context).inflate(R.layout.item_user_list, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.item_list_task, parent, false)
         return TaskViewHolder(itemView)
 
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return lists.size
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
 
-        holder.name.text = users[position].name
-        holder.email.text = users[position].email
+        holder.name.text = lists[position].name
+        holder.description.text = lists[position].description
 
     }
 

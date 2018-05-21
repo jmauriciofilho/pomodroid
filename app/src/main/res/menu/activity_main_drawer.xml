@@ -3,13 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <item android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/lists_tasks"
 
-    </group>
+                android:title="Listas de Tarefas" />
 
-    <item
-        android:id="@+id/nav_add_list"
-        android:icon="@drawable/ic_plus_black_24dp"
-        android:title="Adicionar Lista" />
+            <item
+                android:id="@+id/lists_tags"
+                android:title="Lista de Tags" />
+
+
+            <item
+                android:id="@+id/logout_app"
+                android:title="Sair" />
+        </menu>
+    </item>
+
+
 
 </menu>

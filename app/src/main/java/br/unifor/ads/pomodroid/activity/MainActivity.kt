@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import br.unifor.ads.pomodroid.R
@@ -38,6 +39,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
+
+            R.id.lists_tasks -> {
+                Log.d("teste", "listas")
+            }
+
+            R.id.lists_tags -> {
+                Log.d("teste", "tags")
+            }
+
+            R.id.logout_app -> {
+                Log.d("teste", "sair")
+            }
 
         }
 

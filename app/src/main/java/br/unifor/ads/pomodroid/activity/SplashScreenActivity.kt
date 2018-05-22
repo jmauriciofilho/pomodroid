@@ -17,9 +17,20 @@ class SplashScreenActivity : AppCompatActivity() {
 
         handler.postDelayed({
 
-            val it = Intent(SplashScreenActivity@this ,LoginActivity::class.java )
-            startActivity(it)
-            finish()
+            val sharedPreferences = getSharedPreferences("dadosUser", 0)
+            val is_loged = sharedPreferences.getBoolean("is_loged", false)
+
+
+            if (is_loged){
+                val it = Intent(SplashScreenActivity@this, MainActivity::class.java)
+                startActivity(it)
+                finish()
+            } else {
+                val it = Intent(SplashScreenActivity@this ,LoginActivity::class.java )
+                startActivity(it)
+                finish()
+            }
+
 
         }, 3000)
 

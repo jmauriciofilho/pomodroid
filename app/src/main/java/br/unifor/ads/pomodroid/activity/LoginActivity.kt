@@ -63,6 +63,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             val sharedPreferences = getSharedPreferences("dadosUser", 0)
                             val edit = sharedPreferences.edit()
                             edit.putLong("userId", user.id!!)
+                            edit.putBoolean("is_loged", true)
                             edit.apply()
 
                             startActivity(it)

@@ -95,7 +95,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
             }
 
             R.id.logout_app -> {
-                Log.d("teste", "sair")
+                val sharedPreferences = getSharedPreferences("dadosUser", 0)
+                val edit = sharedPreferences.edit()
+                edit.putBoolean("is_loged", false)
+                edit.apply()
+
+                val it = Intent(this, LoginActivity::class.java)
+                startActivity(it)
+                finish()
             }
 
         }

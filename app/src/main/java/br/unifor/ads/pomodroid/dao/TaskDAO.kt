@@ -26,6 +26,7 @@ class TaskDAO(val context : Context){
         values.put(TASK_FINISHED_FIELD, task.finished)
         values.put(TASK_ESTIMATEPOMODORO_FIELD, task.estimatedPomodoro)
         values.put(TASK_TOTALPOMODORO_FIELD, task.totalPomodoro)
+        values.put(TASK_TASKLIST_FIELD, task.taskList.id)
 
         val id = db.insert(TABLE_NAME, null, values )
 
@@ -41,6 +42,7 @@ class TaskDAO(val context : Context){
         values.put(TASK_FINISHED_FIELD, task.finished)
         values.put(TASK_ESTIMATEPOMODORO_FIELD, task.estimatedPomodoro)
         values.put(TASK_TOTALPOMODORO_FIELD, task.totalPomodoro)
+        values.put(TASK_TASKLIST_FIELD, task.taskList.id)
 
         val rowsAffected = db.update(TABLE_NAME, values, "_id = ?", arrayOf(task.id.toString()))
 
@@ -85,6 +87,38 @@ class TaskDAO(val context : Context){
 
         var tasks = ArrayList<Task>()
         val cursor = db.query(TABLE_NAME, null,null, null, null, null, "_id ASC")
+
+        if(cursor.count > 0){
+
+            cursor.moveToFirst()
+
+            do {
+
+                val id = cursor.getLong(cursor.getColumnIndex("_id"))
+                val name = cursor.getString(cursor.getColumnIndex("name"))
+                val description = cursor.getString(cursor.getColumnIndex("description"))
+                val finished = cursor.getInt(cursor.getColumnIndex("finished")) == 1
+                val estimatePomodoro = cursor.getInt(cursor.getColumnIndex("estimatedPomodoro"))
+                val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
+
+                val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
+                val taskListDAO = TaskListDAO(context)
+                val taskList = taskListDAO.find(taskListId)
+
+                tasks.add(Task(id, name, description, finished, estimatePomodoro, totalPomodoro, taskList!!))
+
+            } while (cursor.moveToNext())
+
+        }
+
+        return tasks
+
+    }
+
+    fun findListTask(idList: Int):List<Task>{
+
+        var tasks = ArrayList<Task>()
+        val cursor = db.query(TABLE_NAME, null,"taskList = ?", arrayOf(idList.toString()), null, null, "_id ASC")
 
         if(cursor.count > 0){
 

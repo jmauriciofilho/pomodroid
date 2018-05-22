@@ -19,7 +19,7 @@ class TaskListDAO(val context: Context){
         val values = ContentValues()
         values.put(TASKLIST_NAME_FIELD, taskList.name)
         values.put(TASKLIST_DESCRIPTION_FIELD, taskList.description)
-        values.put(TASKLIST_USER_FIELD, taskList.user.id)
+        values.put(TASKLIST_USER_FIELD, taskList.user!!.id)
 
         val id = db.insert(TABLE_NAME, null, values )
 
@@ -32,7 +32,7 @@ class TaskListDAO(val context: Context){
         val values = ContentValues()
         values.put(TASKLIST_NAME_FIELD, taskList.name)
         values.put(TASKLIST_DESCRIPTION_FIELD, taskList.description)
-        values.put(TASKLIST_USER_FIELD, taskList.user.id)
+//        values.put(TASKLIST_USER_FIELD, taskList.user.id)
 
         val rowsAffected = db.update(TABLE_NAME, values, "_id = ?", arrayOf(taskList.id.toString()))
 

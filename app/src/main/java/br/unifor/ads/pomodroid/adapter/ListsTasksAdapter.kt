@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import br.unifor.ads.pomodroid.R
 import br.unifor.ads.pomodroid.activity.TarefasActivity
+import br.unifor.ads.pomodroid.activity.TaskListFormEditActivity
 import br.unifor.ads.pomodroid.entity.TaskList
 
 class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : RecyclerView.Adapter<ListsTasksAdapter.TaskViewHolder>() {
 
-    class TaskViewHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class TaskViewHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
         val name: TextView
         val description: TextView
@@ -26,6 +27,7 @@ class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : Recyc
             id = 0
 
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
 
         }
 
@@ -34,6 +36,15 @@ class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : Recyc
             intent.putExtra("idList", id)
             context.startActivity(intent)
         }
+
+        override fun onLongClick(v: View): Boolean {
+            val intent = Intent(context, TaskListFormEditActivity::class.java)
+            intent.putExtra("idList", id)
+            context.startActivity(intent)
+
+            return true
+        }
+
 
     }
 

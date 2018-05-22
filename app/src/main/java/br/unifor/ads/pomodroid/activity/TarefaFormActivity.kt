@@ -56,6 +56,7 @@ class TarefaFormActivity : AppCompatActivity(), View.OnClickListener {
                 taskDAO.insert(task)
 
                 val it = Intent(this, TarefasActivity::class.java)
+                it.putExtra("idList", idList)
                 startActivity(it)
 
                 finish()

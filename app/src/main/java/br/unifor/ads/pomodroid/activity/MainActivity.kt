@@ -14,7 +14,9 @@ import android.view.MenuItem
 import android.view.View
 import br.unifor.ads.pomodroid.R
 import br.unifor.ads.pomodroid.adapter.ListsTasksAdapter
+import br.unifor.ads.pomodroid.dao.TagDAO
 import br.unifor.ads.pomodroid.dao.TaskListDAO
+import br.unifor.ads.pomodroid.entity.Tag
 import br.unifor.ads.pomodroid.entity.TaskList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
     override fun onClick(v: View?) {
         val taskListForm = Intent(this, TaskListFormActivity::class.java)
         startActivity(taskListForm)
-
+        finish()
     }
 
     override fun onBackPressed() {
@@ -84,7 +86,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         when (item.itemId) {
 
             R.id.lists_tasks -> {
-                Log.d("teste", "listas")
+                Log.d("teste", "lists")
             }
 
             R.id.lists_tags -> {

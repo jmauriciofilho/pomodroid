@@ -27,9 +27,6 @@ class TarefasActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tarefas)
 
-        mSalvarbtn = findViewById(R.id.main_recycler_tarefa_add)
-        mSalvarbtn.setOnClickListener(this)
-
         taskDAO = TaskDAO(this)
         val idList = intent.getIntExtra("idList", 0)
         tasks = taskDAO.findListTask(idList).toMutableList()
@@ -42,12 +39,14 @@ class TarefasActivity : AppCompatActivity(), View.OnClickListener {
             layoutManager = mRecyclerViewLayoutManager
             adapter = mRecyclerViewAdapter
         }
+
+        mSalvarbtn = findViewById(R.id.main_recycler_tarefa_add)
+        mSalvarbtn.setOnClickListener(this)
     }
 
     override fun onStart() {
-        val idList = intent.getIntExtra("idList", 0)
-
         super.onStart()
+        val idList = intent.getIntExtra("idList", 0)
         tasks.clear()
         tasks.addAll(0, taskDAO.findListTask(idList))
         mTasks.adapter.notifyDataSetChanged()
@@ -55,9 +54,9 @@ class TarefasActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val idList = intent.getIntExtra("idList", 0)
-
         val intent = Intent(this, TarefaFormActivity::class.java)
         intent.putExtra("idList", idList)
         startActivity(intent)
+        finish()
     }
 }

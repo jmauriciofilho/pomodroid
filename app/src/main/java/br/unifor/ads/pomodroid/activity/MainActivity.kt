@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
     override fun onClick(v: View?) {
         val taskListForm = Intent(this, TaskListFormActivity::class.java)
         startActivity(taskListForm)
-        finish()
     }
 
     override fun onBackPressed() {

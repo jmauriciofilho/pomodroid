@@ -58,7 +58,7 @@ class TaskListDAO(val context: Context){
             val name = cursor.getString(cursor.getColumnIndex("name"))
             val description = cursor.getString(cursor.getColumnIndex("description"))
 
-            val userId = cursor.getInt(cursor.getColumnIndex("user"))
+            val userId = cursor.getLong(cursor.getColumnIndex("user"))
             val userDAO = UserDAO(context)
             val user = userDAO.find(userId)
 
@@ -85,7 +85,7 @@ class TaskListDAO(val context: Context){
                 val name = cursor.getString(cursor.getColumnIndex("name"))
                 val description = cursor.getString(cursor.getColumnIndex("description"))
 
-                val userId = cursor.getInt(cursor.getColumnIndex("user"))
+                val userId = cursor.getLong(cursor.getColumnIndex("user"))
                 val userDAO = UserDAO(context)
                 val user = userDAO.find(userId)
 

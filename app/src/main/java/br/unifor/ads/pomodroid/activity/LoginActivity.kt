@@ -1,6 +1,7 @@
 package br.unifor.ads.pomodroid.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -58,20 +59,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     if (user.email == mEmailLogin.text.toString()){
                         if (user.password == mSenhaLogin.text.toString()){
                             val it = Intent(this, MainActivity::class.java)
-                            it.putExtra("id_user", user.id)
+
+                            val sharedPreferences = getSharedPreferences("dadosUser", 0)
+                            val edit = sharedPreferences.edit()
+                            edit.putLong("userId", user.id!!)
+                            edit.apply()
+
                             startActivity(it)
 
                             finish()
-                        }else{
-                            val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
-                            toast.show()
                         }
-                    }else {
-                        val toast = Toast.makeText(LoginActivity@ this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
-                        toast.show()
                     }
 
                 }
+
+                val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
+                toast.show()
 
             }
 

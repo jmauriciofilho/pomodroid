@@ -44,10 +44,8 @@ class TaskListFormActivity : AppCompatActivity(), View.OnClickListener {
                 val name = mEditTestName.text.toString()
                 val description = mEditTestDescription.text.toString()
 
-                val extras = intent.extras
-                val id = extras.getInt("id_user")
-
-                Log.d("teste", id.toString())
+                val sharedPreferences = getSharedPreferences("dadosUser", 0)
+                val id = sharedPreferences.getLong("userId", 1)
 
                 val user = userDAO.find(id)
 

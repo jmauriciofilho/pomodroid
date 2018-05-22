@@ -69,13 +69,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
     }
 
     override fun onClick(v: View?) {
-
-        val extras = intent.extras
-        val userId = extras.getInt("id_user")
-
-
         val taskListForm = Intent(this, TaskListFormActivity::class.java)
-        taskListForm.putExtra("user_id", userId)
         startActivity(taskListForm)
 
     }

@@ -49,7 +49,7 @@ class UserDAO(val context:Context) {
         return rowsAffected.notEquals(0)
     }
 
-    fun find(id: Int):User?{
+    fun find(id: Long):User?{
 
         var user:User? = null
         val cursor = db.query(TABLE_NAME, null,"_id = ?", arrayOf(id.toString()), null, null, null)

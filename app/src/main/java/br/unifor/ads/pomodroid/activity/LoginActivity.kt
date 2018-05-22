@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
                 val users = userDAO.findAll()
 
-                Log.d("usuários:", users.toString())
+                var is_checked = false
 
                 for (user in users){
                     if (user.email == mEmailLogin.text.toString()){
@@ -68,14 +68,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
                             startActivity(it)
 
+                            is_checked = true
+
                             finish()
                         }
                     }
 
                 }
 
-                val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
-                toast.show()
+                if (!is_checked){
+                    val toast = Toast.makeText(LoginActivity@this, "Dados do usuário incorretos.", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
 
             }
 

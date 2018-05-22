@@ -86,7 +86,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         when (item.itemId) {
 
             R.id.lists_tasks -> {
-                Log.d("teste", "lists")
+                val listsTasks = Intent(this, MainActivity::class.java)
+                startActivity(listsTasks)
+                finish()
             }
 
             R.id.lists_tags -> {

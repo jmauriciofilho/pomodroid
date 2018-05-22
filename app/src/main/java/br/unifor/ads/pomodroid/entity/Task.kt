@@ -7,5 +7,5 @@ data class Task(
         val finished:Boolean,
         val estimatedPomodoro:Int,
         val totalPomodoro:Int,
-        val taskList:TaskList
+        val taskList:TaskList? = null
 )

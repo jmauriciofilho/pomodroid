@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.unifor.ads.pomodroid.R
+import br.unifor.ads.pomodroid.activity.TarefaFormEditActivity
 import br.unifor.ads.pomodroid.activity.TarefasActivity
 import br.unifor.ads.pomodroid.entity.Task
 
@@ -30,9 +31,9 @@ class TarefasAdapter(val context: Context, val tarefas: List<Task>) : RecyclerVi
         }
 
         override fun onClick(v: View?) {
-//            val intent = Intent(context, TarefasActivity::class.java)
-//            intent.putExtra("idTarefa", id)
-//            context.startActivity(intent)
+            val intent = Intent(context, TarefaFormEditActivity::class.java)
+            intent.putExtra("idTarefa", id)
+            context.startActivity(intent)
         }
 
     }

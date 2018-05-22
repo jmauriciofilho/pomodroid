@@ -25,7 +25,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.TaskListFormActivity" />
         <activity android:name=".activity.TarefasActivity" />
-        <activity android:name=".activity.TarefaFormActivity"></activity>
+        <activity android:name=".activity.TarefaFormActivity" />
+        <activity android:name=".activity.TarefaFormEditActivity"></activity>
     </application>
 
 </manifest>

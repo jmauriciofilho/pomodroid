@@ -4,8 +4,8 @@ data class Task(
         val id:Long? = null,
         val name:String,
         val description:String,
-        val finished:Boolean,
-        val estimatedPomodoro:Int,
-        val totalPomodoro:Int,
+        val finished:Boolean? = null,
+        val estimatedPomodoro:Int? = null,
+        val totalPomodoro:Int? = null,
         val taskList:TaskList? = null
 )

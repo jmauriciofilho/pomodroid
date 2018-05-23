@@ -3,7 +3,6 @@ package br.unifor.ads.pomodroid.adapter
 import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.*
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -14,7 +13,7 @@ import br.unifor.ads.pomodroid.activity.TaskListFormEditActivity
 import br.unifor.ads.pomodroid.dao.TaskListDAO
 import br.unifor.ads.pomodroid.entity.TaskList
 
-class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : RecyclerView.Adapter<ListsTasksAdapter.TaskViewHolder>() {
+class ListsTasksAdapter(val context: MainActivity, val lists: List<TaskList>) : RecyclerView.Adapter<ListsTasksAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
@@ -33,7 +32,7 @@ class ListsTasksAdapter(val context: Context, val lists: List<TaskList>) : Recyc
 
             id = 0
 
-            taskListDAO = TaskListDAO(context)
+            taskListDAO = TaskListDAO(context as MainActivity)
 
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)

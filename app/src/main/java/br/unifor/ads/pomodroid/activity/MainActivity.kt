@@ -21,36 +21,17 @@ import br.unifor.ads.pomodroid.entity.TaskList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
-
-    private lateinit var mListsTasks: RecyclerView
-    private lateinit var mListTaskAdd: FloatingActionButton
-
-    private lateinit var mRecyclerViewAdapter: RecyclerView.Adapter<*>
-    private lateinit var mRecyclerViewLayoutManager: LinearLayoutManager
-
-    private lateinit var taskListDAO: TaskListDAO
-    private lateinit var tasksLists: MutableList<TaskList>
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        taskListDAO = TaskListDAO(this)
-        tasksLists = taskListDAO.findAll().toMutableList()
-
-        mRecyclerViewAdapter = ListsTasksAdapter(this, tasksLists)
-        mRecyclerViewLayoutManager = LinearLayoutManager(this)
-
-        mListsTasks = findViewById<RecyclerView>(R.id.main_recycler_lists_tasks).apply {
-            setHasFixedSize(false)
-            layoutManager = mRecyclerViewLayoutManager
-            adapter = mRecyclerViewAdapter
-        }
-
-        mListTaskAdd = findViewById<FloatingActionButton>(R.id.main_recycler_list_add)
-        mListTaskAdd.setOnClickListener(this)
+        val fragment = supportFragmentManager
+        val ft = fragment.beginTransaction()
+        ft.add(R.id.content_main, TasksListsFragment())
+        ft.commit()
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -58,18 +39,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        tasksLists.clear()
-        tasksLists.addAll(0, taskListDAO.findAll())
-        mListsTasks.adapter.notifyDataSetChanged()
-    }
-
-    override fun onClick(v: View?) {
-        val taskListForm = Intent(this, TaskListFormActivity::class.java)
-        startActivity(taskListForm)
     }
 
     override fun onBackPressed() {
@@ -85,13 +54,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.O
         when (item.itemId) {
 
             R.id.lists_tasks -> {
-                val listsTasks = Intent(this, MainActivity::class.java)
-                startActivity(listsTasks)
-                finish()
+                val fragment = supportFragmentManager
+                val ft = fragment.beginTransaction()
+                ft.replace(R.id.content_main, TasksListsFragment())
+                ft.commit()
             }
 
             R.id.lists_tags -> {
-                Log.d("teste", "tags")
+                val fragment = supportFragmentManager
+                val ft = fragment.beginTransaction()
+                ft.replace(R.id.content_main, TagsFragment())
+                ft.commit()
             }
 
             R.id.logout_app -> {

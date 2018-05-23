@@ -2,6 +2,8 @@ package br.unifor.ads.pomodroid.dao
 
 import android.content.ContentValues
 import android.content.Context
+import android.support.v4.app.FragmentActivity
+import br.unifor.ads.pomodroid.activity.MainActivity
 import br.unifor.ads.pomodroid.entity.TaskList
 import br.unifor.ads.pomodroid.util.notEquals
 

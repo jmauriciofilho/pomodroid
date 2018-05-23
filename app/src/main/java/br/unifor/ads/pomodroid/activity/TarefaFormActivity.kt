@@ -33,7 +33,7 @@ class TarefaFormActivity : AppCompatActivity(), View.OnClickListener {
         mSalvarBtnTarefa = findViewById(R.id.salvar_btn_tarefa)
         mSalvarBtnTarefa.setOnClickListener(this)
 
-        taskListDAO = TaskListDAO(this)
+        taskListDAO = TaskListDAO(this as MainActivity)
         taskDAO = TaskDAO(this)
     }
 

@@ -2,8 +2,8 @@ package br.unifor.ads.pomodroid.dao
 
 import android.content.ContentValues
 import android.content.Context
+import br.unifor.ads.pomodroid.activity.MainActivity
 import br.unifor.ads.pomodroid.entity.Task
-import br.unifor.ads.pomodroid.entity.TaskList
 import br.unifor.ads.pomodroid.util.notEquals
 
 class TaskDAO(val context : Context){
@@ -71,7 +71,7 @@ class TaskDAO(val context : Context){
             val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
             val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
-            val taskListDAO = TaskListDAO(context)
+            val taskListDAO = TaskListDAO(context as MainActivity)
             val taskList = taskListDAO.find(taskListId)
 
             task = Task(id, name, description, finished, estimatePomodoro, totalPomodoro, taskList!!)
@@ -101,7 +101,7 @@ class TaskDAO(val context : Context){
                 val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
                 val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
-                val taskListDAO = TaskListDAO(context)
+                val taskListDAO = TaskListDAO(context as MainActivity)
                 val taskList = taskListDAO.find(taskListId)
 
                 tasks.add(Task(id, name, description, finished, estimatePomodoro, totalPomodoro, taskList!!))
@@ -133,7 +133,7 @@ class TaskDAO(val context : Context){
                 val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
                 val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
-                val taskListDAO = TaskListDAO(context)
+                val taskListDAO = TaskListDAO(context as MainActivity)
                 val taskList = taskListDAO.find(taskListId)
 
                 tasks.add(Task(id, name, description, finished, estimatePomodoro, totalPomodoro, taskList!!))

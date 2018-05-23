@@ -133,7 +133,7 @@ class TaskDAO(val context : Context){
                 val totalPomodoro = cursor.getInt(cursor.getColumnIndex("totalPomodoro"))
 
                 val taskListId = cursor.getInt(cursor.getColumnIndex("taskList"))
-                val taskListDAO = TaskListDAO(context as MainActivity)
+                val taskListDAO = TaskListDAO(context)
                 val taskList = taskListDAO.find(taskListId)
 
                 tasks.add(Task(id, name, description, finished, estimatePomodoro, totalPomodoro, taskList!!))

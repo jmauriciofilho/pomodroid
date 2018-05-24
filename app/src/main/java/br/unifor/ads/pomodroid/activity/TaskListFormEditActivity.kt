@@ -28,7 +28,7 @@ class TaskListFormEditActivity : AppCompatActivity(), View.OnClickListener {
         mSalvarListBtn = findViewById(R.id.salvar_list_btn_editar)
         mSalvarListBtn.setOnClickListener(this)
 
-        taskListDAO = TaskListDAO(this as MainActivity)
+        taskListDAO = TaskListDAO(this)
 
         getListTasks()
     }

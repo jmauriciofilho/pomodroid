@@ -2,22 +2,12 @@ package br.unifor.ads.pomodroid.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import br.unifor.ads.pomodroid.R
-import br.unifor.ads.pomodroid.adapter.ListsTasksAdapter
-import br.unifor.ads.pomodroid.dao.TagDAO
-import br.unifor.ads.pomodroid.dao.TaskListDAO
-import br.unifor.ads.pomodroid.entity.Tag
-import br.unifor.ads.pomodroid.entity.TaskList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 

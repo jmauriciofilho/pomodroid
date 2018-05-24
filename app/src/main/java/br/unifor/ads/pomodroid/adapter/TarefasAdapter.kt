@@ -74,8 +74,8 @@ class TarefasAdapter(val context: Context, val tarefas: List<Task>) : RecyclerVi
                     when (item.getItemId()) {
                         R.id.editar_menu -> {
 
-                            val intent = Intent(context, TarefaFormActivity::class.java)
-                            intent.putExtra("idList", holder.id)
+                            val intent = Intent(context, TarefaFormEditActivity::class.java)
+                            intent.putExtra("idTarefa", holder.id)
                             context.startActivity(intent)
 
                         }
@@ -83,7 +83,7 @@ class TarefasAdapter(val context: Context, val tarefas: List<Task>) : RecyclerVi
 
                             val task = Task(holder.id, holder.name.text.toString(), holder.description.text.toString())
                             holder.taskDAO.delete(task)
-                            val it = Intent(context, TarefasActivity::class.java)
+                            val it = Intent(context, TarefaFormEditActivity::class.java)
                             context.startActivity(it)
 
                         }

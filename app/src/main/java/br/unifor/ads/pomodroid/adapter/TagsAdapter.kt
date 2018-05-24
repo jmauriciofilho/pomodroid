@@ -1,12 +1,14 @@
 package br.unifor.ads.pomodroid.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.unifor.ads.pomodroid.R
+import br.unifor.ads.pomodroid.activity.TagFormEditActivity
 import br.unifor.ads.pomodroid.entity.Tag
 
 /**
@@ -14,17 +16,18 @@ import br.unifor.ads.pomodroid.entity.Tag
  */
 class TagsAdapter(val context: Context, val tags: List<Tag>) : RecyclerView.Adapter<TagsAdapter.TagViewHolder>() {
 
-    class TagViewHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class TagViewHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
         val name: TextView
         var id: Int
 
         init {
 
-            name = itemView.findViewById(R.id.item_tarefa_name)
+            name = itemView.findViewById(R.id.item_tag_name)
             id = 0
 
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
 
         }
 
@@ -32,6 +35,13 @@ class TagsAdapter(val context: Context, val tags: List<Tag>) : RecyclerView.Adap
 //            val intent = Intent(context, TagActivity::class.java)
 //            intent.putExtra("idTag", id)
 //            context.startActivity(intent)
+        }
+
+        override fun onLongClick(v: View?): Boolean {
+            val intent = Intent(context, TagFormEditActivity::class.java)
+            intent.putExtra("idTag", id)
+            context.startActivity(intent)
+            return true
         }
 
     }

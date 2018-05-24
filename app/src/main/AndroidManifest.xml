@@ -27,7 +27,9 @@
         <activity android:name=".activity.TarefasActivity" />
         <activity android:name=".activity.TarefaFormActivity" />
         <activity android:name=".activity.TarefaFormEditActivity" />
-        <activity android:name=".activity.TaskListFormEditActivity"></activity>
+        <activity android:name=".activity.TaskListFormEditActivity" />
+        <activity android:name=".activity.TagFormActivity" />
+        <activity android:name=".activity.TagFormEditActivity"></activity>
     </application>
 
 </manifest>
